@@ -7,13 +7,124 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <Button
+                android:id="@+id/getPets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GET available pets" />
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityLiveRegion="polite"
+                android:text="Ready — send a request" />
+            <Button
+                android:id="@+id/postPet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="POST a new classroom cat" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Outgoing POST body — serialized object"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/outgoingJson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textIsSelectable="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Last HTTP response body — unchanged text"
+                android:textStyle="bold" />
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="160dp">
+                <TextView
+                    android:id="@+id/responseJson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textIsSelectable="true" />
+            </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="JSON to deserialize — edit or paste from Notepad++"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/loadDemo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Load demo JSON" />
+            <EditText
+                android:id="@+id/jsonInput"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:gravity="top|start"
+                android:fontFamily="monospace"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:hint="Paste a JSON array here"
+                android:importantForAutofill="no" />
+            <Button
+                android:id="@+id/parsePets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deserialize to Pet[]" />
+            <Button
+                android:id="@+id/showAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show available objects" />
+            <Button
+                android:id="@+id/showAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show all objects" />
+            <Button
+                android:id="@+id/renameFirst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rename first object to Pixel" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Java objects — table built from Pet fields"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/objectStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityLiveRegion="polite"
+                android:text="No objects yet" />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+                <TableLayout
+                    android:id="@+id/petTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

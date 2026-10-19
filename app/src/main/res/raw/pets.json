@@ -1,0 +1,5 @@
+[
+  {"id": 101, "name": "Milo", "status": "available", "photoUrls": []},
+  {"id": 102, "name": "Luna", "status": "pending", "photoUrls": []},
+  {"id": 103, "name": "Nala", "status": "available", "photoUrls": []}
+]

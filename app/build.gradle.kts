@@ -25,6 +25,10 @@ android {
             }
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -32,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.14.0")
+    implementation("com.android.volley:volley:1.2.1")
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
